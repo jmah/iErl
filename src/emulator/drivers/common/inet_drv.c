@@ -3682,6 +3682,8 @@ static int inet_ctl_open(inet_descriptor* desc, int domain, int type,
     if ((desc->event = sock_create_event(desc)) == INVALID_EVENT)
 	return ctl_error(sock_errno(), rbuf, rsize);
     SET_NONBLOCKING(desc->s);
+    int set = 1;
+    setsockopt(desc->s, SOL_SOCKET, SO_NOSIGPIPE, &set, sizeof(set));
 #ifdef __WIN32__
     driver_select(desc->port, desc->event, ERL_DRV_READ, 1);
 #endif

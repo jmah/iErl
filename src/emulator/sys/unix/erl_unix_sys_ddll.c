@@ -104,21 +104,25 @@ void erl_sys_ddll_init(void) {
  */
 int erts_sys_ddll_open2(char *full_name, void **handle, ErtsSysDdllError* err)
 {
-	printf("Dynamic load attempt: %s\n", full_name);
-	if(strncmp("emonk", full_name, 5) == 0) {
-		*handle = (void*) 1;
-		return ERL_DE_NO_ERROR;
-	}
-	if(strncmp("ejson", full_name, 5) == 0) {
-		*handle = (void*) 2;
-		return ERL_DE_NO_ERROR;
-	}
-	if(strncmp("snappy", full_name, 6) == 0) {
-		*handle = (void*) 3;
-		return ERL_DE_NO_ERROR;
-	}
-	err->str = my_strdup_in(ERTS_ALC_T_DDLL_TMP_BUF,"Cannot load DLLs on iOS");
-	return ERL_DE_ERROR_NO_DDLL_FUNCTIONALITY;
+    fprintf(stderr, "Dynamic load attempt: %s\n", full_name);
+    if(strcmp("emonk", full_name) == 0) {
+        *handle = (void*) 1;
+        return ERL_DE_NO_ERROR;
+    }
+    if(strcmp("ejson", full_name) == 0) {
+        *handle = (void*) 2;
+        return ERL_DE_NO_ERROR;
+    }
+    if(strcmp("snappy", full_name) == 0) {
+        *handle = (void*) 3;
+        return ERL_DE_NO_ERROR;
+    }
+    if(strcmp("ios", full_name) == 0) {
+        *handle = (void*) 4;
+        return ERL_DE_NO_ERROR;
+    }
+    err->str = my_strdup_in(ERTS_ALC_T_DDLL_TMP_BUF,"Cannot load DLLs on iOS");
+    return ERL_DE_ERROR_NO_DDLL_FUNCTIONALITY;
 }
 
 int erts_sys_ddll_open_noext(char *dlname, void **handle, ErtsSysDdllError* err)
@@ -158,25 +162,30 @@ int erts_sys_ddll_load_driver_init(void *handle, void **function)
 ErlNifEntry* emonk_init(void);
 ErlNifEntry* ejson_init(void);
 ErlNifEntry* snappy_init(void);
+ErlNifEntry* couch_ios_init(void);
 int erts_sys_ddll_load_nif_init(void *handle, void **function, ErtsSysDdllError* err)
 {
-	printf("NIF Init #%d, ", (int) handle);
-	int res = ERL_DE_ERROR_NO_DDLL_FUNCTIONALITY;;
-	if((int)handle == 1) {
-		printf("emonk.\n");
-		*function = emonk_init;
-		res = ERL_DE_NO_ERROR;
-	}
-	if((int)handle == 2) {
-		printf("ejson.\n");
-		*function = ejson_init;
-		res = ERL_DE_NO_ERROR;
-	}
-	if((int)handle == 3) {
-		printf("snappy.\n");
-		*function = snappy_init;
-		res = ERL_DE_NO_ERROR;
-	}
+    int res = ERL_DE_ERROR_NO_DDLL_FUNCTIONALITY;;
+    if((size_t)handle == 1) {
+        fprintf(stderr, "Loaded NIF: emonk.\n");
+        *function = emonk_init;
+        res = ERL_DE_NO_ERROR;
+    }
+    if((size_t)handle == 2) {
+        fprintf(stderr, "Loaded NIF: ejson.\n");
+        *function = ejson_init;
+        res = ERL_DE_NO_ERROR;
+    }
+    if((size_t)handle == 3) {
+        fprintf(stderr, "Loaded NIF: snappy.\n");
+        *function = snappy_init;
+        res = ERL_DE_NO_ERROR;
+    }
+    if((size_t)handle == 4) {
+        fprintf(stderr, "Loaded NIF: ios.\n");
+        *function = couch_ios_init;
+        res = ERL_DE_NO_ERROR;
+    }
     return res;
 }
 

@@ -387,6 +387,9 @@
 		D9ABA81513DFB5CC00D072BE /* snappy.cc in Sources */ = {isa = PBXBuildFile; fileRef = D9ABA80C13DFB5CC00D072BE /* snappy.cc */; };
 		D9ABA81613DFB5CC00D072BE /* snappy.h in Headers */ = {isa = PBXBuildFile; fileRef = D9ABA80D13DFB5CC00D072BE /* snappy.h */; };
 		D9ABA81713DFB5CC00D072BE /* snappy_nif.cc in Sources */ = {isa = PBXBuildFile; fileRef = D9ABA80E13DFB5CC00D072BE /* snappy_nif.cc */; };
+		D9F85BF113F191A700A73E46 /* ios_drv.m in Sources */ = {isa = PBXBuildFile; fileRef = D9F85BF013F191A700A73E46 /* ios_drv.m */; };
+		D9F85BF313F193FC00A73E46 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9F85BF213F193FC00A73E46 /* CoreFoundation.framework */; };
+		D9F85BF513F1962C00A73E46 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9F85BF413F1962C00A73E46 /* UIKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -777,6 +780,9 @@
 		D9E24B561240275800AC152E /* couch_icu_driver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = couch_icu_driver.m; path = src/couch_icu_driver.m; sourceTree = SOURCE_ROOT; };
 		D9E24B571240275800AC152E /* crypto_drv.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = crypto_drv.c; path = src/crypto_drv.c; sourceTree = SOURCE_ROOT; };
 		D9E24C5B124031A700AC152E /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		D9F85BF013F191A700A73E46 /* ios_drv.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ios_drv.m; path = src/ios_drv.m; sourceTree = "<group>"; };
+		D9F85BF213F193FC00A73E46 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		D9F85BF413F1962C00A73E46 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -784,6 +790,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9F85BF513F1962C00A73E46 /* UIKit.framework in Frameworks */,
+				D9F85BF313F193FC00A73E46 /* CoreFoundation.framework in Frameworks */,
 				27167DCE13C4E1BF001CC5B6 /* Foundation.framework in Frameworks */,
 				27167DCF13C4E1BF001CC5B6 /* libicucore.dylib in Frameworks */,
 			);
@@ -840,6 +848,8 @@
 		0867D69AFE84028FC02AAC07 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D9F85BF413F1962C00A73E46 /* UIKit.framework */,
+				D9F85BF213F193FC00A73E46 /* CoreFoundation.framework */,
 				AACBBE490F95108600F1A2B1 /* Foundation.framework */,
 			);
 			name = Frameworks;
@@ -850,6 +860,7 @@
 			children = (
 				D9E24B561240275800AC152E /* couch_icu_driver.m */,
 				D9E24B571240275800AC152E /* crypto_drv.c */,
+				D9F85BF013F191A700A73E46 /* ios_drv.m */,
 				D9E24AA4124015FE00AC152E /* erl_memory_trace_parser.c */,
 				D9E24AA5124015FE00AC152E /* erl_misc_utils.c */,
 				D9E24AA6124015FE00AC152E /* erl_printf_format.c */,
@@ -1924,6 +1935,7 @@
 				D9ABA81313DFB5CC00D072BE /* snappy-stubs-internal.cc in Sources */,
 				D9ABA81513DFB5CC00D072BE /* snappy.cc in Sources */,
 				D9ABA81713DFB5CC00D072BE /* snappy_nif.cc in Sources */,
+				D9F85BF113F191A700A73E46 /* ios_drv.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1998,6 +2010,14 @@
 				GCC_OPTIMIZATION_LEVEL = s;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iErl14_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"ERTS_SMP=1",
+					"HAVE_CONFIG_H=1",
+					"_DARWIN_C_SOURCE=1",
+					"ERLANG_INTEGRATION=1",
+					"NO_RECURSE=1",
+					"USE_THREADS=1",
+				);
 				GCC_VERSION = 4.2;
 				INSTALL_PATH = /usr/local/lib;
 				LIBRARY_SEARCH_PATHS = (
@@ -2023,6 +2043,14 @@
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iErl14_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"ERTS_SMP=1",
+					"HAVE_CONFIG_H=1",
+					"_DARWIN_C_SOURCE=1",
+					"ERLANG_INTEGRATION=1",
+					"NO_RECURSE=1",
+					"USE_THREADS=1",
+				);
 				GCC_VERSION = 4.2;
 				INSTALL_PATH = /usr/local/lib;
 				LIBRARY_SEARCH_PATHS = (

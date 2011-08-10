@@ -61,7 +61,7 @@
 #define ERTS_HAVE_HYBRID_EMU 1
 
 /* Define if the smp emulator is built */
-/* #undef ERTS_HAVE_SMP_EMU */
+#define	ERTS_HAVE_SMP_EMU 1
 
 /* Define if dlopen() needs to be called before first call to dlerror() */
 /* #undef ERTS_NEED_DLOPEN_BEFORE_DLERROR */

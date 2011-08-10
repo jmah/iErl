@@ -11,6 +11,7 @@ extern ErlDrvEntry ram_file_driver_entry;
 extern ErlDrvEntry ttsl_driver_entry;
 extern ErlDrvEntry crypto_driver_entry;
 extern ErlDrvEntry couch_driver_entry;
+extern ErlDrvEntry ios_driver_entry;
 
 ErlDrvEntry *driver_tab[DRIVER_TAB_SIZE] =
 {
@@ -19,7 +20,8 @@ ErlDrvEntry *driver_tab[DRIVER_TAB_SIZE] =
     &zlib_driver_entry,
     &ram_file_driver_entry,
     &ttsl_driver_entry,
-	&couch_driver_entry,
-	&crypto_driver_entry,
+    &couch_driver_entry,
+    &crypto_driver_entry,
+    &ios_driver_entry,
     NULL
 };

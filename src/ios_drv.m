@@ -94,12 +94,47 @@ ERL_NIF_TERM get_port(ErlNifEnv* env, int argc, const ERL_NIF_TERM argv[])
     return enif_make_int(env, couchdb_port);
 }
 
+ERL_NIF_TERM post_notification(ErlNifEnv* env, int argc, const ERL_NIF_TERM argv[])
+{
+    ErlNifBinary name, key, value;
+
+    ERL_NIF_TERM head, tail, proplist;
+    const ERL_NIF_TERM *pair;
+    proplist = argv[1];
+    unsigned int proplen;
+    int pairlen;
+
+    enif_inspect_binary(env, argv[0], &name);
+    CFStringRef cfname = CFStringCreateWithBytes(NULL, name.data, name.size, kCFStringEncodingUTF8, false);
+
+    CFMutableDictionaryRef dict = CFDictionaryCreateMutable(NULL, proplen,
+                                    &kCFTypeDictionaryKeyCallBacks, &kCFTypeDictionaryValueCallBacks);
+    while(enif_get_list_cell(env, proplist, &head, &tail))
+    {
+        enif_get_tuple(env, head, &pairlen, &pair);
+        enif_inspect_binary(env, pair[0], &key);
+        enif_inspect_binary(env, pair[1], &value);
+        CFStringRef ck = CFStringCreateWithBytes(NULL, key.data, key.size, kCFStringEncodingUTF8, false);
+        CFStringRef cv = CFStringCreateWithBytes(NULL, value.data, value.size, kCFStringEncodingUTF8, false);
+        CFDictionaryAddValue(dict, ck, cv);
+        CFRelease(ck);
+        CFRelease(cv);
+        proplist = tail;
+    }
+
+    NSLog(@"Posting notification from Erlang: %@ [%@]", cfname, dict);
+    CFNotificationCenterPostNotification(CFNotificationCenterGetLocalCenter(), cfname, NULL, dict, true);
+    CFRelease(cfname);
+    CFRelease(dict);
+    return util_mk_atom(env, "ok");
+}
 
 //We're also a NIF for preserving the port number across the VM restart
 static ErlNifFunc ios_nif_funcs[] =
 {
     {"set_port", 1, set_port},
-    {"get_port", 0, get_port}
+    {"get_port", 0, get_port},
+    {"post_notification", 2, post_notification}
 };
 
 ERL_NIF_INIT(couch_ios, ios_nif_funcs, NULL, NULL, NULL, NULL);

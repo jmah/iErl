@@ -17,18 +17,8 @@ specific language governing permissions and limitations under the License.
 // means of calling into C code, however coding errors in this module can
 // crash the entire Erlang server.
 
-#define U_HIDE_DRAFT_API 1
-#define U_DISABLE_RENAMING 1
-
 
 #include "erl_driver.h"
-#include "unicode/utypes.h"
-#include "unicode/uiter.h"
-#include "unicode/ucol.h"
-#include "unicode/urename.h"
-#ifndef WIN32
-#include <string.h> // for memcpy
-#endif
 
 typedef struct {
     ErlDrvPort port;

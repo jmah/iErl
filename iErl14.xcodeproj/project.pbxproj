@@ -777,7 +777,7 @@
 		D9E24AA6124015FE00AC152E /* erl_printf_format.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = erl_printf_format.c; path = src/erl_printf_format.c; sourceTree = SOURCE_ROOT; };
 		D9E24AA7124015FE00AC152E /* erl_printf.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = erl_printf.c; path = src/erl_printf.c; sourceTree = SOURCE_ROOT; };
 		D9E24AA8124015FE00AC152E /* ethread.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ethread.c; path = src/ethread.c; sourceTree = SOURCE_ROOT; };
-		D9E24B561240275800AC152E /* couch_icu_driver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = couch_icu_driver.m; path = src/couch_icu_driver.m; sourceTree = SOURCE_ROOT; };
+		D9E24B561240275800AC152E /* couch_icu_driver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = couch_icu_driver.m; path = src/couch_icu_driver.m; sourceTree = SOURCE_ROOT; tabWidth = 8; };
 		D9E24B571240275800AC152E /* crypto_drv.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = crypto_drv.c; path = src/crypto_drv.c; sourceTree = SOURCE_ROOT; };
 		D9E24C5B124031A700AC152E /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		D9F85BF013F191A700A73E46 /* ios_drv.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ios_drv.m; path = src/ios_drv.m; sourceTree = "<group>"; };
@@ -1963,6 +1963,7 @@
 					src,
 					.,
 				);
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				OTHER_LDFLAGS = "-c";
 				PREBINDING = NO;
 				SDKROOT = iphoneos;
@@ -1988,6 +1989,7 @@
 					src,
 					.,
 				);
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PREBINDING = NO;
 				SDKROOT = iphoneos;
@@ -2007,7 +2009,7 @@
 				DSTROOT = /tmp/iErl14.dst;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
-				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_OPTIMIZATION_LEVEL = 3;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iErl14_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -2041,6 +2043,7 @@
 				DSTROOT = /tmp/iErl14.dst;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_OPTIMIZATION_LEVEL = 3;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iErl14_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (

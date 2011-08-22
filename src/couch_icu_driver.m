@@ -19,6 +19,7 @@ specific language governing permissions and limitations under the License.
 
 
 #include "erl_driver.h"
+#include <CoreFoundation/CFString.h>
 
 typedef struct {
     ErlDrvPort port;
@@ -26,19 +27,11 @@ typedef struct {
 
 static void couch_drv_stop(ErlDrvData data)
 {
-	//driver_free((char*)data);
 }
 
 static ErlDrvData couch_drv_start(ErlDrvPort port, char *buff)
 {
-//	couch_drv_data* pData = (couch_drv_data*)driver_alloc(sizeof(couch_drv_data));
-//
-  //  if (pData == NULL)
-    //    return ERL_DRV_ERROR_GENERAL;
-
-    //pData->port = port;
-
-    return NULL;//(ErlDrvData)pData;
+    return NULL;
 }
 
 static int return_control_result(void* pLocalResult, int localLen, char **ppRetBuf, int returnLen)
@@ -56,55 +49,56 @@ static int return_control_result(void* pLocalResult, int localLen, char **ppRetB
 static int couch_drv_control(ErlDrvData drv_data, unsigned int command, char *pBuf,
              int bufLen, char **rbuf, int rlen)
 {
-	NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
     switch(command) {
     case 0: // COLLATE
     case 1: // COLLATE_NO_CASE:
         {
-		int32_t length;
-		char response;
-		NSString* str_a;
-		NSString* str_b;	
-		NSComparisonResult collResult;
-        // 2 strings are in the buffer, consecutively
-        // The strings begin first with a 32 bit integer byte length, then the actual
-        // string bytes follow.
+	    uint32_t length;
+	    char response;
+	    // 2 strings are in the buffer, consecutively
+	    // The strings begin first with a 32 bit integer byte length, then the actual
+	    // string bytes follow.
 
-        // first 32bits are the length
-        memcpy(&length, pBuf, sizeof(length));
-        pBuf += sizeof(length);
-		str_a = [[NSString alloc] initWithData:[[NSData alloc] initWithBytes:pBuf length:length]
-									  encoding:NSUTF8StringEncoding];
-			
-        // point the iterator at it.
-        //uiter_setUTF8(&iterA, pBuf, length);
+	    // first 32bits are the length
+	    memcpy(&length, pBuf, sizeof(length));
+	    pBuf += sizeof(length);
+	    CFStringRef str_a = CFStringCreateWithBytesNoCopy(NULL, (const uint8_t*)pBuf, length,
+							      kCFStringEncodingUTF8, NO,
+							      kCFAllocatorNull);
+	    if (!str_a) {
+		return -1;	// error -- ureadable UTF-8
+	    }
 
-        pBuf += length; // now on to string b
+	    pBuf += length; // now on to string b
 
-        // first 32bits are the length
-        memcpy(&length, pBuf, sizeof(length));
-        pBuf += sizeof(length);
-			str_b = [[NSString alloc] initWithData:[[NSData alloc] initWithBytes:pBuf length:length] 
-										  encoding:NSUTF8StringEncoding];
-			
-        //uiter_setUTF8(&iterB, pBuf, length);
+	    // first 32bits are the length
+	    memcpy(&length, pBuf, sizeof(length));
+	    pBuf += sizeof(length);
+	    CFStringRef str_b = CFStringCreateWithBytesNoCopy(NULL, (const uint8_t*)pBuf, length,
+							      kCFStringEncodingUTF8, NO,
+							      kCFAllocatorNull);
+	    if (!str_b) {
+		CFRelease(str_a);
+		return -1;	// error -- ureadable UTF-8
+	    }
 
-        if (command == 0) // COLLATE
-			collResult = [str_a localizedCompare:str_b];
-        else              // COLLATE_NO_CASE
-			collResult = [str_a localizedCaseInsensitiveCompare:str_b];
+	    CFStringCompareFlags flags = kCFCompareAnchored;
+	    if (command == 1)
+		flags |= kCFCompareCaseInsensitive;
 
-        if (collResult == NSOrderedAscending)
-          response = 0; //lt
-        else if (collResult == NSOrderedDescending)
-          response = 2; //gt
-        else
-          response = 1; //eq (NSOrderedSame)
-		[pool release];
-			
-        return return_control_result(&response, sizeof(response), rbuf, rlen);
+	    CFComparisonResult collResult = CFStringCompare(str_a, str_b, flags);
+
+	    if (collResult == kCFCompareLessThan)
+		response = 0; //lt
+	    else if (collResult == kCFCompareGreaterThan)
+		response = 2; //gt
+	    else
+		response = 1; //eq (NSOrderedSame)
+
+	    CFRelease(str_a);
+	    CFRelease(str_b);
+	    return return_control_result(&response, sizeof(response), rbuf, rlen);
         }
-	[pool release];
     default:
         return -1;
     }

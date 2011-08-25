@@ -1,6 +1,11 @@
 
+#ifdef HAVE_CONFIG_H
+#  include "config.h"
+#endif
+
 #include <string.h>
 
+#include "big.h"
 #include "util.h"
 
 jsval
@@ -234,6 +239,12 @@ to_js(ErlNifEnv* env, JSContext* cx, ERL_NIF_TERM term)
         return to_js_number(cx, doubleval);
     }
     
+	// enif doesn't seem to have any API to decode bignums, so use lower-level functions:
+	if(is_big(term) && big_to_double(term, &doubleval) == 0)
+	{
+		return to_js_number(cx, doubleval);
+	}
+
     if(enif_get_list_cell(env, term, &head, &tail))
     {
         return to_js_array(env, cx, head, tail);

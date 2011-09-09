@@ -46,7 +46,7 @@ void notificationCallback (CFNotificationCenterRef center,
                            CFStringRef name,
                            const void * object,
                            CFDictionaryRef userInfo) {
-    NSLog(@"Got return from foreground notification.");
+    NSLog(@"Got request to restart.");
     if(iosdrv_process != 0)
     {
         ErlDrvTermData term[] = {ERL_DRV_ATOM, iosdrv_foregrounded, ERL_DRV_TUPLE, 1};
@@ -58,7 +58,7 @@ void notificationCallback (CFNotificationCenterRef center,
 int iosdrv_init(void)
 {
     CFNotificationCenterAddObserver(CFNotificationCenterGetLocalCenter(), NULL,
-            notificationCallback, (CFStringRef) UIApplicationWillEnterForegroundNotification,
+            notificationCallback, (CFStringRef) @"CouchDBRequestRestart",
             NULL, CFNotificationSuspensionBehaviorCoalesce);
     return 0;
 }

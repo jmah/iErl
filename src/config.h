@@ -530,7 +530,7 @@
 #define NO_FPE_SIGNALS 
 
 /* Defined if no found C compiler can handle jump tables */
-#define NO_JUMP_TABLE  /* work around code-gen problem(?) with LLVM-GCC --jens */
+/* #undef NO_JUMP_TABLE */  // NOTE: This currently has to be turned on if building with LLVM --jens
 
 /* Obscure SYSV feature */
 /* #undef NO_PRAGMA_WEAK */

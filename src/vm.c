@@ -191,7 +191,7 @@ jserl_evalcx(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval)
         JS_ReportOutOfMemory(cx);
         return JS_FALSE;
     }
-    
+    jsrefcount susp = JS_SuspendRequest(cx);
     JS_BeginRequest(subcx);
 
     src = JS_GetStringChars(str);
@@ -216,6 +216,7 @@ jserl_evalcx(JSContext* cx, JSObject* obj, uintN argc, jsval* argv, jsval* rval)
 
 done:
     JS_DestroyContext(subcx);
+    JS_ResumeRequest(cx, susp);
     return ret;
 }
 

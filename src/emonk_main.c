@@ -29,8 +29,6 @@ load(ErlNifEnv* env, void** priv, ENTERM load_info)
     const char* name = "Context";
     int flags = ERL_NIF_RT_CREATE | ERL_NIF_RT_TAKEOVER;
 
-    JS_SetCStringsAreUTF8();
-
     if(state == NULL) goto error;
 
     state->lock = NULL;

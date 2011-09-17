@@ -121,6 +121,10 @@ int erts_sys_ddll_open2(char *full_name, void **handle, ErtsSysDdllError* err)
         *handle = (void*) 4;
         return ERL_DE_NO_ERROR;
     }
+    if(strcmp("objc_dispatch", full_name) == 0) {
+        *handle = (void*) 5;
+        return ERL_DE_NO_ERROR;
+    }
     err->str = my_strdup_in(ERTS_ALC_T_DDLL_TMP_BUF,"Cannot load DLLs on iOS");
     return ERL_DE_ERROR_NO_DDLL_FUNCTIONALITY;
 }
@@ -163,6 +167,7 @@ ErlNifEntry* emonk_init(void);
 ErlNifEntry* ejson_init(void);
 ErlNifEntry* snappy_init(void);
 ErlNifEntry* couch_ios_init(void);
+ErlNifEntry* objc_dispatch_init(void);
 int erts_sys_ddll_load_nif_init(void *handle, void **function, ErtsSysDdllError* err)
 {
     int res = ERL_DE_ERROR_NO_DDLL_FUNCTIONALITY;;
@@ -184,6 +189,11 @@ int erts_sys_ddll_load_nif_init(void *handle, void **function, ErtsSysDdllError*
     if((size_t)handle == 4) {
         fprintf(stderr, "Loaded NIF: ios.\n");
         *function = couch_ios_init;
+        res = ERL_DE_NO_ERROR;
+    }
+    if((size_t)handle == 5) {
+        fprintf(stderr, "Loaded NIF: objc_dispatch.\n");
+        *function = objc_dispatch_init;
         res = ERL_DE_NO_ERROR;
     }
     return res;

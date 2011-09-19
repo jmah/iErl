@@ -282,8 +282,6 @@
 		27167D8A13C4E1BF001CC5B6 /* ram_file_drv.c in Sources */ = {isa = PBXBuildFile; fileRef = D9E241ED123EA87000AC152E /* ram_file_drv.c */; };
 		27167D8B13C4E1BF001CC5B6 /* zlib_drv.c in Sources */ = {isa = PBXBuildFile; fileRef = D9E241EE123EA87000AC152E /* zlib_drv.c */; };
 		27167D8C13C4E1BF001CC5B6 /* bin_drv.c in Sources */ = {isa = PBXBuildFile; fileRef = D9E241F0123EA87000AC152E /* bin_drv.c */; };
-		27167D8D13C4E1BF001CC5B6 /* sig_drv.c in Sources */ = {isa = PBXBuildFile; fileRef = D9E241F3123EA87000AC152E /* sig_drv.c */; };
-		27167D8E13C4E1BF001CC5B6 /* ttsl_drv.c in Sources */ = {isa = PBXBuildFile; fileRef = D9E241F4123EA87000AC152E /* ttsl_drv.c */; };
 		27167D8F13C4E1BF001CC5B6 /* unix_efile.c in Sources */ = {isa = PBXBuildFile; fileRef = D9E241F5123EA87000AC152E /* unix_efile.c */; };
 		27167D9013C4E1BF001CC5B6 /* pcre_chartables.c in Sources */ = {isa = PBXBuildFile; fileRef = D9E2423C123EA87000AC152E /* pcre_chartables.c */; };
 		27167D9113C4E1BF001CC5B6 /* pcre_compile.c in Sources */ = {isa = PBXBuildFile; fileRef = D9E2423D123EA87000AC152E /* pcre_compile.c */; };
@@ -642,8 +640,6 @@
 		D9E241ED123EA87000AC152E /* ram_file_drv.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ram_file_drv.c; sourceTree = "<group>"; };
 		D9E241EE123EA87000AC152E /* zlib_drv.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = zlib_drv.c; sourceTree = "<group>"; };
 		D9E241F0123EA87000AC152E /* bin_drv.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = bin_drv.c; sourceTree = "<group>"; };
-		D9E241F3123EA87000AC152E /* sig_drv.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sig_drv.c; sourceTree = "<group>"; };
-		D9E241F4123EA87000AC152E /* ttsl_drv.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ttsl_drv.c; sourceTree = "<group>"; };
 		D9E241F5123EA87000AC152E /* unix_efile.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = unix_efile.c; sourceTree = "<group>"; };
 		D9E24239123EA87000AC152E /* local_config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = local_config.h; sourceTree = "<group>"; };
 		D9E2423B123EA87000AC152E /* pcre.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pcre.h; sourceTree = "<group>"; };
@@ -1199,8 +1195,6 @@
 			isa = PBXGroup;
 			children = (
 				D9E241F0123EA87000AC152E /* bin_drv.c */,
-				D9E241F3123EA87000AC152E /* sig_drv.c */,
-				D9E241F4123EA87000AC152E /* ttsl_drv.c */,
 				D9E241F5123EA87000AC152E /* unix_efile.c */,
 			);
 			path = unix;
@@ -1768,8 +1762,6 @@
 				27167D8A13C4E1BF001CC5B6 /* ram_file_drv.c in Sources */,
 				27167D8B13C4E1BF001CC5B6 /* zlib_drv.c in Sources */,
 				27167D8C13C4E1BF001CC5B6 /* bin_drv.c in Sources */,
-				27167D8D13C4E1BF001CC5B6 /* sig_drv.c in Sources */,
-				27167D8E13C4E1BF001CC5B6 /* ttsl_drv.c in Sources */,
 				27167D8F13C4E1BF001CC5B6 /* unix_efile.c in Sources */,
 				27167D9013C4E1BF001CC5B6 /* pcre_chartables.c in Sources */,
 				27167D9113C4E1BF001CC5B6 /* pcre_compile.c in Sources */,

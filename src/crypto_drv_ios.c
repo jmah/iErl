@@ -257,10 +257,10 @@ int crypto_control(ErlDrvData drv_data, unsigned int command,
 			if (len < 8)
 				return -1;
 			int from_len = get_int32(buf);
-			if (from_len < 1 || len < (8 + from_len))
+			if (from_len < 0 || len < (8 + from_len))
 				return -1;
 			int to_len = get_int32(buf + 4 + from_len);
-			if (to_len < 1 || len != (8 + from_len + to_len))
+			if (to_len < 0 || len != (8 + from_len + to_len))
 				return -1;
 
 			int result_len;

@@ -13,9 +13,9 @@ specific language governing permissions and limitations under the License.
 
 */
 
-// This file is the C port driver for Erlang. It provides a low overhead
-// means of calling into C code, however coding errors in this module can
-// crash the entire Erlang server.
+// String collation driver for iOS / Mac OS.
+// Implements Unicode collation <http://www.unicode.org/reports/tr10/> without calling ICU directly.
+// See <http://wiki.apache.org/couchdb/View_collation>
 
 
 #include "erl_driver.h"
@@ -66,7 +66,7 @@ static int couch_drv_control(ErlDrvData drv_data, unsigned int command, char *pB
 							      kCFStringEncodingUTF8, NO,
 							      kCFAllocatorNull);
 	    if (!str_a) {
-		return -1;	// error -- ureadable UTF-8
+		return -1;	// error -- unreadable UTF-8
 	    }
 
 	    pBuf += length; // now on to string b
@@ -79,10 +79,11 @@ static int couch_drv_control(ErlDrvData drv_data, unsigned int command, char *pB
 							      kCFAllocatorNull);
 	    if (!str_b) {
 		CFRelease(str_a);
-		return -1;	// error -- ureadable UTF-8
+		return -1;	// error -- unreadable UTF-8
 	    }
 
-	    CFStringCompareFlags flags = kCFCompareAnchored;
+	    // Flags are very important: 'localized' means we basically follow Unicode collation.
+	    CFStringCompareFlags flags = kCFCompareAnchored | kCFCompareLocalized;
 	    if (command == 1)
 		flags |= kCFCompareCaseInsensitive;
 

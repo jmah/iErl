@@ -167,6 +167,9 @@ ErlDrvEntry crypto_driver_entry = {
 /* List of implemented commands. Returned by DRV_INFO. */
 static const uint8_t kImplementedFuncs[] = {
 	DRV_MD5,
+	DRV_MD5_INIT,
+	DRV_MD5_UPDATE,
+	DRV_MD5_FINAL,
 	DRV_SHA,
 	DRV_SHA_MAC,
 	DRV_RAND_BYTES,
@@ -212,6 +215,29 @@ int crypto_control(ErlDrvData drv_data, unsigned int command,
 			bin = return_binary(rbuf,rlen,CC_MD5_DIGEST_LENGTH);
 			if (bin==NULL) return -1;
 			CC_MD5(buf, len, bin);
+			return CC_MD5_DIGEST_LENGTH;
+		}
+		case DRV_MD5_INIT: {
+			bin = return_binary(rbuf,rlen,sizeof(CC_MD5_CTX));
+			if (bin==NULL) return -1;
+			CC_MD5_Init((CC_MD5_CTX*)bin);
+			return sizeof(CC_MD5_CTX);
+		}
+		case DRV_MD5_UPDATE: {
+			if (len < sizeof(CC_MD5_CTX))
+				return -1;
+			bin = return_binary(rbuf,rlen,sizeof(CC_MD5_CTX));
+			if (bin==NULL) return -1;
+			memcpy(bin, buf, sizeof(CC_MD5_CTX));
+			CC_MD5_Update((CC_MD5_CTX*)bin, buf + sizeof(CC_MD5_CTX), len - sizeof(CC_MD5_CTX));
+			return sizeof(CC_MD5_CTX);
+		}
+		case DRV_MD5_FINAL: {
+			if (len != sizeof(CC_MD5_CTX))
+				return -1;
+			bin = return_binary(rbuf, rlen, CC_MD5_DIGEST_LENGTH);
+			if (bin==NULL) return -1;
+			CC_MD5_Final(bin, (CC_MD5_CTX*)buf);
 			return CC_MD5_DIGEST_LENGTH;
 		}
 		case DRV_SHA: {
@@ -278,8 +304,8 @@ int crypto_control(ErlDrvData drv_data, unsigned int command,
 		}
 		// NOTE: If you implement more cases, you must add them to kImplementedFuncs[].
 		default: {
-            // fprintf(stderr, "ERROR: crypto_drv_ios.c: unsupported crypto_control command %u\n",
-            //      command);
+            fprintf(stderr, "ERROR: crypto_drv_ios.c: unsupported crypto_control command %u\n",
+                    command);
 			return -1;
 		}
     }

@@ -7,6 +7,9 @@
 #define GHBN_R_GLIBC    4
 
 
+/* Disables expensive access() syscalls in efile_fileinfo() ... not necessary on iOS. --Jens */
+#define NO_ACCESS
+
 /* Using shared libz.dylib. Couldn't find a definition of this flag anywhere. --Jens */
 #define HAVE_LIBZ
 

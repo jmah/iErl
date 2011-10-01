@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		270F4E5F143688E300234600 /* objc_to_term.h in Headers */ = {isa = PBXBuildFile; fileRef = 270F4E5B143688E300234600 /* objc_to_term.h */; };
+		270F4E60143688E300234600 /* objc_to_term.m in Sources */ = {isa = PBXBuildFile; fileRef = 270F4E5C143688E300234600 /* objc_to_term.m */; };
+		270F4E61143688E300234600 /* term_to_objc.h in Headers */ = {isa = PBXBuildFile; fileRef = 270F4E5D143688E300234600 /* term_to_objc.h */; };
+		270F4E62143688E300234600 /* term_to_objc.m in Sources */ = {isa = PBXBuildFile; fileRef = 270F4E5E143688E300234600 /* term_to_objc.m */; };
 		27167C6F13C4E1BF001CC5B6 /* iErl14_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* iErl14_Prefix.pch */; };
 		27167C7013C4E1BF001CC5B6 /* erl_int_sizes_config.h in Headers */ = {isa = PBXBuildFile; fileRef = D9E24142123EA72600AC152E /* erl_int_sizes_config.h */; };
 		27167C7113C4E1BF001CC5B6 /* atom.h in Headers */ = {isa = PBXBuildFile; fileRef = D9E24153123EA86F00AC152E /* atom.h */; };
@@ -394,6 +398,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		270F4E5B143688E300234600 /* objc_to_term.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = objc_to_term.h; sourceTree = "<group>"; };
+		270F4E5C143688E300234600 /* objc_to_term.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = objc_to_term.m; sourceTree = "<group>"; };
+		270F4E5D143688E300234600 /* term_to_objc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = term_to_objc.h; sourceTree = "<group>"; };
+		270F4E5E143688E300234600 /* term_to_objc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = term_to_objc.m; sourceTree = "<group>"; };
 		27167DD413C4E1BF001CC5B6 /* libiErl14.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libiErl14.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2796230014201AC60051455D /* crypto_drv_ios.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = crypto_drv_ios.c; path = src/crypto_drv_ios.c; sourceTree = "<group>"; };
 		2849E7A51424A2B10075C6DE /* objc-dispatch-main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "objc-dispatch-main.m"; sourceTree = "<group>"; };
@@ -901,6 +909,10 @@
 			isa = PBXGroup;
 			children = (
 				2849E7A51424A2B10075C6DE /* objc-dispatch-main.m */,
+				270F4E5B143688E300234600 /* objc_to_term.h */,
+				270F4E5C143688E300234600 /* objc_to_term.m */,
+				270F4E5D143688E300234600 /* term_to_objc.h */,
+				270F4E5E143688E300234600 /* term_to_objc.m */,
 			);
 			path = c_src;
 			sourceTree = "<group>";
@@ -1727,6 +1739,8 @@
 				D9ABA81213DFB5CC00D072BE /* snappy-sinksource.h in Headers */,
 				D9ABA81413DFB5CC00D072BE /* snappy-stubs-internal.h in Headers */,
 				D9ABA81613DFB5CC00D072BE /* snappy.h in Headers */,
+				270F4E5F143688E300234600 /* objc_to_term.h in Headers */,
+				270F4E61143688E300234600 /* term_to_objc.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1966,6 +1980,8 @@
 				D9F85BF113F191A700A73E46 /* ios_drv.m in Sources */,
 				2796230C142106A80051455D /* crypto_drv_ios.c in Sources */,
 				2849E7AF1424A2B10075C6DE /* objc-dispatch-main.m in Sources */,
+				270F4E60143688E300234600 /* objc_to_term.m in Sources */,
+				270F4E62143688E300234600 /* term_to_objc.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

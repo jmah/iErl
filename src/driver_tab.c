@@ -19,7 +19,7 @@ ErlDrvEntry *driver_tab[DRIVER_TAB_SIZE] =
     &inet_driver_entry,
     &zlib_driver_entry,
     &ram_file_driver_entry,
-    &ttsl_driver_entry,
+//  &ttsl_driver_entry,			// Not needed for mobile CouchDB --jens
     &couch_driver_entry,
     &crypto_driver_entry,
     &ios_driver_entry,

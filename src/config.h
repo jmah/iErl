@@ -7,6 +7,9 @@
 #define GHBN_R_GLIBC    4
 
 
+/* Using shared libz.dylib. Couldn't find a definition of this flag anywhere. --Jens */
+#define HAVE_LIBZ
+
 /* Define the brk() argument type. */
 #define BRK_ARG_TYPE const void *
 

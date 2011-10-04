@@ -278,8 +278,8 @@ int crypto_control(ErlDrvData drv_data, unsigned int command,
 		}
 		// NOTE: If you implement more cases, you must add them to kImplementedFuncs[].
 		default: {
-			fprintf(stderr, "ERROR: crypto_drv_ios.c: unsupported crypto_control command %u\n",
-					command);
+            // fprintf(stderr, "ERROR: crypto_drv_ios.c: unsupported crypto_control command %u\n",
+            //      command);
 			return -1;
 		}
     }

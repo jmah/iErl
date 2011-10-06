@@ -380,17 +380,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		270F4E5B143688E300234600 /* objc_to_term.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = objc_to_term.h; sourceTree = "<group>"; };
-		270F4E5C143688E300234600 /* objc_to_term.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = objc_to_term.m; sourceTree = "<group>"; };
-		270F4E5D143688E300234600 /* term_to_objc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = term_to_objc.h; sourceTree = "<group>"; };
-		270F4E5E143688E300234600 /* term_to_objc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = term_to_objc.m; sourceTree = "<group>"; };
+		270F4E5B143688E300234600 /* objc_to_term.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = objc_to_term.h; sourceTree = "<group>"; usesTabs = 0; };
+		270F4E5C143688E300234600 /* objc_to_term.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = objc_to_term.m; sourceTree = "<group>"; usesTabs = 0; };
+		270F4E5D143688E300234600 /* term_to_objc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = term_to_objc.h; sourceTree = "<group>"; usesTabs = 0; };
+		270F4E5E143688E300234600 /* term_to_objc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = term_to_objc.m; sourceTree = "<group>"; usesTabs = 0; };
 		27167DD413C4E1BF001CC5B6 /* libiErl14.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libiErl14.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2796230014201AC60051455D /* crypto_drv_ios.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = crypto_drv_ios.c; path = src/crypto_drv_ios.c; sourceTree = "<group>"; };
-		27CB653A143A395400EEA1F2 /* CouchbaseViewDispatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouchbaseViewDispatcher.h; sourceTree = "<group>"; };
-		27CB653B143A395400EEA1F2 /* CouchbaseViewDispatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouchbaseViewDispatcher.m; sourceTree = "<group>"; };
-		27CB6543143A423D00EEA1F2 /* CouchbaseViewRegistry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouchbaseViewRegistry.h; sourceTree = "<group>"; };
-		27CB6544143A423E00EEA1F2 /* CouchbaseViewRegistry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouchbaseViewRegistry.m; sourceTree = "<group>"; };
-		2849E7A51424A2B10075C6DE /* objc-dispatch-main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "objc-dispatch-main.m"; sourceTree = "<group>"; };
+		27CB653A143A395400EEA1F2 /* CouchbaseViewDispatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouchbaseViewDispatcher.h; sourceTree = "<group>"; usesTabs = 0; };
+		27CB653B143A395400EEA1F2 /* CouchbaseViewDispatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouchbaseViewDispatcher.m; sourceTree = "<group>"; usesTabs = 0; };
+		27CB6543143A423D00EEA1F2 /* CouchbaseViewRegistry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouchbaseViewRegistry.h; sourceTree = "<group>"; usesTabs = 0; };
+		27CB6544143A423E00EEA1F2 /* CouchbaseViewRegistry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouchbaseViewRegistry.m; sourceTree = "<group>"; usesTabs = 0; };
+		2849E7A51424A2B10075C6DE /* objc-dispatch-main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "objc-dispatch-main.m"; sourceTree = "<group>"; usesTabs = 0; };
 		2849E7AB1424A2B10075C6DE /* objc-dispatch.app */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "objc-dispatch.app"; sourceTree = "<group>"; };
 		2849E7AE1424A2B10075C6DE /* objc_dispatch.erl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = objc_dispatch.erl; sourceTree = "<group>"; };
 		AA747D9E0F9514B9006C5449 /* iErl14_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iErl14_Prefix.pch; sourceTree = SOURCE_ROOT; };
@@ -427,14 +427,14 @@
 		D93F40631256660000AF842F /* vm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = vm.h; path = src/vm.h; sourceTree = SOURCE_ROOT; };
 		D9ABA80113DFB5CC00D072BE /* erl_nif_compat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = erl_nif_compat.h; sourceTree = "<group>"; };
 		D9ABA80313DFB5CC00D072BE /* AUTHORS */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AUTHORS; sourceTree = "<group>"; };
-		D9ABA80413DFB5CC00D072BE /* snappy-config.h */ = {isa = PBXFileReference; fileEncoding = 4; path = "snappy-config.h"; sourceTree = "<group>"; };
+		D9ABA80413DFB5CC00D072BE /* snappy-config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "snappy-config.h"; sourceTree = "<group>"; };
 		D9ABA80513DFB5CC00D072BE /* COPYING */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = COPYING; sourceTree = "<group>"; };
 		D9ABA80613DFB5CC00D072BE /* snappy-internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "snappy-internal.h"; sourceTree = "<group>"; };
 		D9ABA80713DFB5CC00D072BE /* snappy-sinksource.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "snappy-sinksource.cc"; sourceTree = "<group>"; };
 		D9ABA80813DFB5CC00D072BE /* snappy-sinksource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "snappy-sinksource.h"; sourceTree = "<group>"; };
 		D9ABA80913DFB5CC00D072BE /* snappy-stubs-internal.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "snappy-stubs-internal.cc"; sourceTree = "<group>"; };
 		D9ABA80A13DFB5CC00D072BE /* snappy-stubs-internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "snappy-stubs-internal.h"; sourceTree = "<group>"; };
-		D9ABA80B13DFB5CC00D072BE /* snappy-stubs-public.h */ = {isa = PBXFileReference; fileEncoding = 4; path = "snappy-stubs-public.h"; sourceTree = "<group>"; };
+		D9ABA80B13DFB5CC00D072BE /* snappy-stubs-public.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "snappy-stubs-public.h"; sourceTree = "<group>"; };
 		D9ABA80C13DFB5CC00D072BE /* snappy.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = snappy.cc; sourceTree = "<group>"; };
 		D9ABA80D13DFB5CC00D072BE /* snappy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = snappy.h; sourceTree = "<group>"; };
 		D9ABA80E13DFB5CC00D072BE /* snappy_nif.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = snappy_nif.cc; sourceTree = "<group>"; };

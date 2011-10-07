@@ -27,6 +27,8 @@ util_mk_error(ErlNifEnv* env, const char* reason)
     return enif_make_tuple2(env, error, util_mk_atom(env, reason));
 }
 
+#ifndef EMONK_DISABLED
+
 void
 util_debug_jsval(JSContext* cx, jsval val)
 {
@@ -49,3 +51,5 @@ util_debug_jsval(JSContext* cx, jsval val)
     
     fprintf(stderr, "%s\n", bytes);
 }
+
+#endif

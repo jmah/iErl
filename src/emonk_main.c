@@ -6,6 +6,8 @@
 #include "util.h"
 #include "vm.h"
 
+#ifndef EMONK_DISABLED
+
 #define GC_THRESHOLD 10485760 // 10 MiB
 #define MAX_BYTES 8388608
 #define MAX_MALLOC_BYTES 8388608
@@ -203,3 +205,4 @@ static ErlNifFunc nif_funcs[] = {
 
 ERL_NIF_INIT(emonk, nif_funcs, &load, NULL, NULL, unload);
 
+#endif // EMONK_ENABLED

@@ -105,10 +105,12 @@ void erl_sys_ddll_init(void) {
 int erts_sys_ddll_open2(char *full_name, void **handle, ErtsSysDdllError* err)
 {
     fprintf(stderr, "Dynamic load attempt: %s\n", full_name);
+#ifndef EMONK_DISABLED
     if(strcmp("emonk", full_name) == 0) {
         *handle = (void*) 1;
         return ERL_DE_NO_ERROR;
     }
+#endif
     if(strcmp("ejson", full_name) == 0) {
         *handle = (void*) 2;
         return ERL_DE_NO_ERROR;
@@ -165,12 +167,14 @@ ErlNifEntry* snappy_init(void);
 ErlNifEntry* couch_ios_init(void);
 int erts_sys_ddll_load_nif_init(void *handle, void **function, ErtsSysDdllError* err)
 {
-    int res = ERL_DE_ERROR_NO_DDLL_FUNCTIONALITY;;
+    int res = ERL_DE_ERROR_NO_DDLL_FUNCTIONALITY;
+#ifndef EMONK_DISABLED
     if((size_t)handle == 1) {
         fprintf(stderr, "Loaded NIF: emonk.\n");
         *function = emonk_init;
         res = ERL_DE_NO_ERROR;
     }
+#endif
     if((size_t)handle == 2) {
         fprintf(stderr, "Loaded NIF: ejson.\n");
         *function = ejson_init;

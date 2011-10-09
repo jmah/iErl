@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		270F4E5F143688E300234600 /* objc_to_term.h in Headers */ = {isa = PBXBuildFile; fileRef = 270F4E5B143688E300234600 /* objc_to_term.h */; };
+		270F4E60143688E300234600 /* objc_to_term.m in Sources */ = {isa = PBXBuildFile; fileRef = 270F4E5C143688E300234600 /* objc_to_term.m */; };
+		270F4E61143688E300234600 /* term_to_objc.h in Headers */ = {isa = PBXBuildFile; fileRef = 270F4E5D143688E300234600 /* term_to_objc.h */; };
+		270F4E62143688E300234600 /* term_to_objc.m in Sources */ = {isa = PBXBuildFile; fileRef = 270F4E5E143688E300234600 /* term_to_objc.m */; };
 		27167C6F13C4E1BF001CC5B6 /* iErl14_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* iErl14_Prefix.pch */; };
 		27167C7013C4E1BF001CC5B6 /* erl_int_sizes_config.h in Headers */ = {isa = PBXBuildFile; fileRef = D9E24142123EA72600AC152E /* erl_int_sizes_config.h */; };
 		27167C7113C4E1BF001CC5B6 /* atom.h in Headers */ = {isa = PBXBuildFile; fileRef = D9E24153123EA86F00AC152E /* atom.h */; };
@@ -336,6 +340,13 @@
 		27167DCE13C4E1BF001CC5B6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 		27167DCF13C4E1BF001CC5B6 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D9E24C5B124031A700AC152E /* libicucore.dylib */; };
 		2796230C142106A80051455D /* crypto_drv_ios.c in Sources */ = {isa = PBXBuildFile; fileRef = 2796230014201AC60051455D /* crypto_drv_ios.c */; };
+		27A37446143E98C7005A577D /* CouchbaseAppServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 27A37444143E98C7005A577D /* CouchbaseAppServer.h */; };
+		27A37447143E98C7005A577D /* CouchbaseAppServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A37445143E98C7005A577D /* CouchbaseAppServer.m */; };
+		27CB653C143A395400EEA1F2 /* CouchbaseViewDispatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 27CB653A143A395400EEA1F2 /* CouchbaseViewDispatcher.h */; };
+		27CB653D143A395400EEA1F2 /* CouchbaseViewDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CB653B143A395400EEA1F2 /* CouchbaseViewDispatcher.m */; };
+		27CB6545143A423E00EEA1F2 /* CouchbaseCallbacks.h in Headers */ = {isa = PBXBuildFile; fileRef = 27CB6543143A423D00EEA1F2 /* CouchbaseCallbacks.h */; };
+		27CB6546143A423E00EEA1F2 /* CouchbaseCallbacks.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CB6544143A423E00EEA1F2 /* CouchbaseCallbacks.m */; };
+		2849E7AF1424A2B10075C6DE /* objc-dispatch-main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2849E7A51424A2B10075C6DE /* objc-dispatch-main.m */; };
 		D912EF2B13DFA1BE00E671FA /* decode.c in Sources */ = {isa = PBXBuildFile; fileRef = D912EF1613DFA1BE00E671FA /* decode.c */; };
 		D912EF2C13DFA1BE00E671FA /* ejson.c in Sources */ = {isa = PBXBuildFile; fileRef = D912EF1713DFA1BE00E671FA /* ejson.c */; };
 		D912EF2D13DFA1BE00E671FA /* encode.c in Sources */ = {isa = PBXBuildFile; fileRef = D912EF1813DFA1BE00E671FA /* encode.c */; };
@@ -371,8 +382,21 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		270F4E5B143688E300234600 /* objc_to_term.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = objc_to_term.h; sourceTree = "<group>"; };
+		270F4E5C143688E300234600 /* objc_to_term.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = objc_to_term.m; sourceTree = "<group>"; };
+		270F4E5D143688E300234600 /* term_to_objc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = term_to_objc.h; sourceTree = "<group>"; };
+		270F4E5E143688E300234600 /* term_to_objc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = term_to_objc.m; sourceTree = "<group>"; };
 		27167DD413C4E1BF001CC5B6 /* libiErl14.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libiErl14.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2796230014201AC60051455D /* crypto_drv_ios.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = crypto_drv_ios.c; path = src/crypto_drv_ios.c; sourceTree = "<group>"; };
+		27A37444143E98C7005A577D /* CouchbaseAppServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouchbaseAppServer.h; sourceTree = "<group>"; };
+		27A37445143E98C7005A577D /* CouchbaseAppServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouchbaseAppServer.m; sourceTree = "<group>"; };
+		27CB653A143A395400EEA1F2 /* CouchbaseViewDispatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouchbaseViewDispatcher.h; sourceTree = "<group>"; };
+		27CB653B143A395400EEA1F2 /* CouchbaseViewDispatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouchbaseViewDispatcher.m; sourceTree = "<group>"; };
+		27CB6543143A423D00EEA1F2 /* CouchbaseCallbacks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouchbaseCallbacks.h; sourceTree = "<group>"; };
+		27CB6544143A423E00EEA1F2 /* CouchbaseCallbacks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouchbaseCallbacks.m; sourceTree = "<group>"; };
+		2849E7A51424A2B10075C6DE /* objc-dispatch-main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "objc-dispatch-main.m"; sourceTree = "<group>"; };
+		2849E7AB1424A2B10075C6DE /* objc-dispatch.app */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "objc-dispatch.app"; sourceTree = "<group>"; };
+		2849E7AE1424A2B10075C6DE /* objc_dispatch.erl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = objc_dispatch.erl; sourceTree = "<group>"; };
 		AA747D9E0F9514B9006C5449 /* iErl14_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iErl14_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D912EF1613DFA1BE00E671FA /* decode.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = decode.c; sourceTree = "<group>"; };
@@ -778,6 +802,7 @@
 				D9ABA80013DFB5CC00D072BE /* snappy */,
 				D912EF1513DFA1BE00E671FA /* ejson */,
 				D9B75C46124C1B5200497E76 /* emonk */,
+				2849E7A31424A2B10075C6DE /* objc-dispatch */,
 				D9E24C131240288C00AC152E /* Headers */,
 				08FB77AEFE84172EC02AAC07 /* Classes */,
 				32C88DFF0371C24200C91783 /* Other Sources */,
@@ -835,6 +860,51 @@
 				D9E24142123EA72600AC152E /* erl_int_sizes_config.h */,
 			);
 			name = Classes;
+			sourceTree = "<group>";
+		};
+		2849E7A31424A2B10075C6DE /* objc-dispatch */ = {
+			isa = PBXGroup;
+			children = (
+				2849E7A41424A2B10075C6DE /* c_src */,
+				2849E7AA1424A2B10075C6DE /* ebin */,
+				2849E7AD1424A2B10075C6DE /* src */,
+			);
+			name = "objc-dispatch";
+			path = "../couchdb/src/objc-dispatch";
+			sourceTree = "<group>";
+		};
+		2849E7A41424A2B10075C6DE /* c_src */ = {
+			isa = PBXGroup;
+			children = (
+				2849E7A51424A2B10075C6DE /* objc-dispatch-main.m */,
+				270F4E5B143688E300234600 /* objc_to_term.h */,
+				270F4E5C143688E300234600 /* objc_to_term.m */,
+				270F4E5D143688E300234600 /* term_to_objc.h */,
+				270F4E5E143688E300234600 /* term_to_objc.m */,
+				27CB6543143A423D00EEA1F2 /* CouchbaseCallbacks.h */,
+				27CB6544143A423E00EEA1F2 /* CouchbaseCallbacks.m */,
+				27CB653A143A395400EEA1F2 /* CouchbaseViewDispatcher.h */,
+				27CB653B143A395400EEA1F2 /* CouchbaseViewDispatcher.m */,
+				27A37444143E98C7005A577D /* CouchbaseAppServer.h */,
+				27A37445143E98C7005A577D /* CouchbaseAppServer.m */,
+			);
+			path = c_src;
+			sourceTree = "<group>";
+		};
+		2849E7AA1424A2B10075C6DE /* ebin */ = {
+			isa = PBXGroup;
+			children = (
+				2849E7AB1424A2B10075C6DE /* objc-dispatch.app */,
+			);
+			path = ebin;
+			sourceTree = "<group>";
+		};
+		2849E7AD1424A2B10075C6DE /* src */ = {
+			isa = PBXGroup;
+			children = (
+				2849E7AE1424A2B10075C6DE /* objc_dispatch.erl */,
+			);
+			path = src;
 			sourceTree = "<group>";
 		};
 		32C88DFF0371C24200C91783 /* Other Sources */ = {
@@ -1603,6 +1673,11 @@
 				D9ABA81213DFB5CC00D072BE /* snappy-sinksource.h in Headers */,
 				D9ABA81413DFB5CC00D072BE /* snappy-stubs-internal.h in Headers */,
 				D9ABA81613DFB5CC00D072BE /* snappy.h in Headers */,
+				270F4E5F143688E300234600 /* objc_to_term.h in Headers */,
+				270F4E61143688E300234600 /* term_to_objc.h in Headers */,
+				27CB653C143A395400EEA1F2 /* CouchbaseViewDispatcher.h in Headers */,
+				27CB6545143A423E00EEA1F2 /* CouchbaseCallbacks.h in Headers */,
+				27A37446143E98C7005A577D /* CouchbaseAppServer.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1829,6 +1904,12 @@
 				D9ABA81713DFB5CC00D072BE /* snappy_nif.cc in Sources */,
 				D9F85BF113F191A700A73E46 /* ios_drv.m in Sources */,
 				2796230C142106A80051455D /* crypto_drv_ios.c in Sources */,
+				2849E7AF1424A2B10075C6DE /* objc-dispatch-main.m in Sources */,
+				270F4E60143688E300234600 /* objc_to_term.m in Sources */,
+				270F4E62143688E300234600 /* term_to_objc.m in Sources */,
+				27CB653D143A395400EEA1F2 /* CouchbaseViewDispatcher.m in Sources */,
+				27CB6546143A423E00EEA1F2 /* CouchbaseCallbacks.m in Sources */,
+				27A37447143E98C7005A577D /* CouchbaseAppServer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
